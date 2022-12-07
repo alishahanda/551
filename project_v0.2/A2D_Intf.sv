@@ -36,28 +36,28 @@ end
 always_ff@(posedge clk, negedge rst_n) begin //lft_ld holding register
 	if (!rst_n)
 		lft_ld <= 'b0;
-	else if (rnd_robin_cnt == 2'b00)
+	else if (rnd_robin_cnt == 2'b00 && update)
 		lft_ld <= rd_data[11:0];
 end
 
 always_ff@(posedge clk, negedge rst_n) begin //rght_ld holding register
 	if (!rst_n)
 		rght_ld <= 'b0;
-	else if (rnd_robin_cnt == 2'b01)
+	else if (rnd_robin_cnt == 2'b01 && update)
 		rght_ld <= rd_data[11:0];
 end
 
 always_ff@(posedge clk, negedge rst_n) begin //steer_pot holding register
 	if (!rst_n)
 		steer_pot <= 'b0;
-	else if (rnd_robin_cnt == 2'b10)
+	else if (rnd_robin_cnt == 2'b10 && update)
 		steer_pot <= rd_data[11:0];
 end
 
 always_ff@(posedge clk, negedge rst_n) begin //batt holding register
 	if (!rst_n)
 		batt <= 'b0;
-	else if (rnd_robin_cnt == 2'b11)
+	else if (rnd_robin_cnt == 2'b11 && update)
 		batt <= rd_data[11:0];
 end
 
@@ -105,4 +105,5 @@ endcase
 end
 
 endmodule
-//change
+
+
