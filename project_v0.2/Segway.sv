@@ -22,7 +22,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
   wire vld;								// tells us a new inertial reading is valid
   wire [15:0] ptch;						// ptch reading from inertial interface
   wire [15:0] ptch_rt;
-  wire signed [11:0] lft_spd, rght_spd;	// from balance_cntrl to mtr_drv, specify absolute speed to drive motor
+  logic signed [11:0] lft_spd, rght_spd;	// from balance_cntrl to mtr_drv, specify absolute speed to drive motor
   wire lft_rev, rght_rev;				// left & right motor direction
   wire [11:0] lft_ld, rght_ld;		// measurements from load cells
   wire [11:0] batt;						// proportional to battery measurement
