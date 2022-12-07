@@ -73,7 +73,7 @@ module SegwayModel(clk,RST_n,SS_n,SCLK,MISO,MOSI,INT,PWM1_lft,PWM2_lft,
   reg signed [19:0] theta_lft,theta_rght;				// amount wheels have rotated since start
   reg signed [19:0] rotation_platform;					// rotation of Segway platform in the plane (steering)
   reg signed [15:0] omega_platform;						// angular velocity of platform
-  reg signed [15:0] theta_platform;						// angular position of platform
+  logic signed [15:0] theta_platform;						// angular position of platform
   
   /////////////////////////////////////////////
   // SM outputs declared as type logic next //
