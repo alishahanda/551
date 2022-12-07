@@ -12,11 +12,11 @@ wire cmd_sent;
 wire rst_n;					// synchronized global reset
 
 ////// Stimulus is declared as type reg ///////
-reg clk, RST_n;
+logic clk, RST_n;
 reg [7:0] cmd;				// command host is sending to DUT
 reg send_cmd;				// asserted to initiate sending of command
-reg signed [15:0] rider_lean;
-reg [11:0] ld_cell_lft, ld_cell_rght,steerPot,batt;	// A2D values
+logic signed [15:0] rider_lean;
+logic [11:0] ld_cell_lft, ld_cell_rght,steerPot,batt;	// A2D values
 reg OVR_I_lft, OVR_I_rght;
 
 ///// Internal registers for testing purposes??? /////////
@@ -60,14 +60,27 @@ initial begin
   initialize(clk, RST_n, send_cmd, cmd, rider_lean, ld_cell_lft, ld_cell_rght, steerPot, batt, OVR_I_lft, OVR_I_rght); //initialize inputs, assert and de-assert RST_n
   @(negedge clk);
   sendCmd(g, cmd, send_cmd, clk);
-  repeat (1000000) @(posedge clk);
+  repeat (1000000) @(posedge clk); 
   applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
   repeat (800000) @(posedge clk);
+  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
   applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
   repeat (800000) @(posedge clk);
+  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
   applyInputs(12'hFFF, 12'hFFF, 12'h800, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
   repeat (800000) @(posedge clk);
+  applyInputs(12'h400, 12'h400, 12'h400, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
+  repeat (800000) @(posedge clk);
+  self_check_steer_pot (iDUT.lft_spd,iDUT.rght_spd,steerPot,clk);
+  applyInputs(12'h400, 12'h400, 12'hE00, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
+  repeat (800000) @(posedge clk);
+  self_check_steer_pot (iDUT.lft_spd,iDUT.rght_spd,steerPot,clk);
+
+  //repeat (1000000000) @(posedge clk);
+  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
+  
   $stop();
+  
 end
 
 always
