@@ -61,5 +61,46 @@ begin
 	OVR_I_rght = ovr_i_rght_val;
 end 
 endtask
+//// task to check steer_pot functionality //////////////////
+task automatic self_check_steer_pot 
+input logic [11:0] steer_pot_val;
+ref [12:0] lft_spd;
+ref [12:0] rght_spd;
+
+	begin 
+		steer_pot = steer_pot_val; 
+		repeat (5); 
+		
+		if (steer_pot_val < 12'h800 && lft_spd < rght_spd) $display("check passed...turning left");
+		else $display("ERROR..... not turning left"); 
+		
+		if (steer_pot_val > 12'h800 && lft_spd > rght_spd) $display("check passed......turning right");
+		else $display("ERROR..... not turning right"); 
+		
+		if (steer_pot_val == 12'h800 && lft_spd == rght_spd) $display("check passed.......going straight");
+		else $display("ERROR..... going straight"); 
+	end 
+	endtask 
+	
+//////task to check theta platform ///////
+task automatic self_check_theta_plat
+input logic [13:0] rider_lean_val; 
+ref [13:0] rider_lean; 
+ref [15:0] theta_platform; 
+
+	rider_lean = rider_lean_val;
+	
+	fork 
+		begin: timeout
+			repeat (1000000) @(negedge clk); 
+			$display("ERROR... theta platform doesnt become zero"); 
+		end
+		begin 
+			@(negedge theta_platform); 
+			disable timeout; 
+			$display("YAY, theta platform works"); 
+		end
+	join
+endtask
 
 endpackage
