@@ -53,7 +53,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
 				   .INT(INERT_INT));
   
   /////////////////////////////////////
-  // Instantiate balance controller //
+  // Instantiate balance controller // 
   ///////////////////////////////////					 
   balance_cntrl #(fast_sim) iBAL(.clk(clk),.rst_n(rst_n),.vld(vld),.ptch(ptch),
                      .ptch_rt(ptch_rt),.pwr_up(pwr_up),.rider_off(rider_off),
