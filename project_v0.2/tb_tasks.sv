@@ -62,43 +62,56 @@ begin
 end 
 endtask
 //// task to check steer_pot functionality //////////////////
-task automatic self_check_steer_pot 
-input logic [11:0] steer_pot_val;
-ref [12:0] lft_spd;
-ref [12:0] rght_spd;
+task automatic self_check_steer_pot;
+//input logic [11:0] steer_pot_val;
+ref signed [11:0] lft_spd;
+ref signed [11:0] rght_spd;
+ref [11:0] steerPot;
+ref clk; 
 
 	begin 
-		steer_pot = steer_pot_val; 
-		repeat (5); 
+		//steerPot = steer_pot_val; 
+		//repeat (5); 
+		repeat (100) @(negedge clk);
+		if (steerPot < 12'h800)
+			begin 
+				if(lft_spd < rght_spd) $display("YAY...check passed...turning left");
+				else $display("ERROR..... not turning left"); 
+			end
 		
-		if (steer_pot_val < 12'h800 && lft_spd < rght_spd) $display("check passed...turning left");
-		else $display("ERROR..... not turning left"); 
-		
-		if (steer_pot_val > 12'h800 && lft_spd > rght_spd) $display("check passed......turning right");
-		else $display("ERROR..... not turning right"); 
-		
-		if (steer_pot_val == 12'h800 && lft_spd == rght_spd) $display("check passed.......going straight");
-		else $display("ERROR..... going straight"); 
+		if (steerPot > 12'h800) 
+			begin
+				if(lft_spd > rght_spd) $display("YAY...check passed......turning right");
+				else $display("ERROR..... not turning right"); 
+			end
+		if (steerPot == 12'h800)
+			begin 
+				if (lft_spd == rght_spd) $display("YAY...check passed.......going straight");
+				else $display("ERROR..... going straight"); 
+			end
+			
 	end 
 	endtask 
 	
 //////task to check theta platform ///////
-task automatic self_check_theta_plat
-input logic [13:0] rider_lean_val; 
-ref [13:0] rider_lean; 
-ref [15:0] theta_platform; 
-
-	rider_lean = rider_lean_val;
+task automatic self_check_theta_plat;
+//input logic signed [15:0] rider_lean_val; 
+ref signed [15:0] rider_lean; 
+ref signed[15:0] theta_platform; 
+ref clk; 
+//	rider_lean = rider_lean_val;
 	
 	fork 
 		begin: timeout
 			repeat (1000000) @(negedge clk); 
-			$display("ERROR... theta platform doesnt become zero"); 
+			$display("ERROR... theta platform doesnt behave as intended");
+			$stop();
 		end
 		begin 
-			@(negedge theta_platform); 
-			disable timeout; 
-			$display("YAY, theta platform works"); 
+			if (theta_platform >16'hff01  || theta_platform < 16'h00ff ) begin
+				disable timeout; 
+				$display("YAY, theta platform works"); 
+			end
 		end
 	join
 endtask
