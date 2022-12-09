@@ -12,11 +12,11 @@ wire cmd_sent;
 wire rst_n;					// synchronized global reset
 
 ////// Stimulus is declared as type reg ///////
-logic clk, RST_n;
+reg clk, RST_n;
 reg [7:0] cmd;				// command host is sending to DUT
 reg send_cmd;				// asserted to initiate sending of command
-logic signed [15:0] rider_lean;
-logic [11:0] ld_cell_lft, ld_cell_rght,steerPot,batt;	// A2D values
+reg signed [15:0] rider_lean;
+reg [11:0] ld_cell_lft, ld_cell_rght,steerPot,batt;	// A2D values
 reg OVR_I_lft, OVR_I_rght;
 
 ///// Internal registers for testing purposes??? /////////
@@ -53,34 +53,64 @@ UART_tx iTX(.clk(clk),.rst_n(rst_n),.TX(RX_TX),.trmt(send_cmd),.tx_data(cmd),.tx
 ///////////////////////////////////
 rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
 
-localparam g = 8'h67;
+localparam g = 8'h67; //go command
+localparam s = 8'h73; //stop command
 
 initial begin
-  /// Your magic goes here ///
+  
+  //////////////////////////////////
+  // Initialize all inputs
+  //////////////////////////////////
   initialize(clk, RST_n, send_cmd, cmd, rider_lean, ld_cell_lft, ld_cell_rght, steerPot, batt, OVR_I_lft, OVR_I_rght); //initialize inputs, assert and de-assert RST_n
-  @(negedge clk);
-  sendCmd(g, cmd, send_cmd, clk);
-  repeat (1000000) @(posedge clk); 
-  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
-  repeat (800000) @(posedge clk);
-  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
-  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
-  repeat (800000) @(posedge clk);
-  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
-  applyInputs(12'hFFF, 12'hFFF, 12'h800, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
-  repeat (800000) @(posedge clk);
-  applyInputs(12'h400, 12'h400, 12'h400, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
-  repeat (800000) @(posedge clk);
-  self_check_steer_pot (iDUT.lft_spd,iDUT.rght_spd,steerPot,clk);
-  applyInputs(12'h400, 12'h400, 12'hE00, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
-  repeat (800000) @(posedge clk);
-  self_check_steer_pot (iDUT.lft_spd,iDUT.rght_spd,steerPot,clk);
 
-  //repeat (1000000000) @(posedge clk);
-  self_check_theta_plat (rider_lean,iPHYS.theta_platform,clk);
-  
+  ////////////////////////////////////////////
+  // Testing of theta platform
+  ///////////////////////////////////////////
+  @(negedge clk);
+  sendCmd(g, cmd, send_cmd, clk); //sending go signal
+  repeat (800000) @(posedge clk); //need to wait couple hundred thousand clock cycles between sending go signal and applying rider lean
+  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0FFF, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //step function on rider_lean, rider_lean initially 0, now applying FFF
+  check_theta_plat(iPHYS.theta_platform, clk);
+  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //rider_lean abruptly changes to 000
+  check_theta_plat(iPHYS.theta_platform, clk);
+
+  ///////////////////////////////////////////
+  // Testing of auth blk
+  ///////////////////////////////////////////
+  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //rider on	
+  check_pwr_up(iDUT.iAuth.pwr_up, clk, cmd, iDUT.iAuth.rider_off, iDUT.iAuth.rx_rdy);
+  sendCmd(s, cmd, send_cmd, clk); //sending stop signal
+  //however rider is still on.. shouldn't be powering off...
+  check_pwr_up(iDUT.iAuth.pwr_up, clk, cmd, iDUT.iAuth.rider_off, iDUT.iAuth.rx_rdy);
+  //Now rider steps off
+  applyInputs(12'h000, 12'h000, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //rider off
+  check_pwr_up(iDUT.iAuth.pwr_up, clk, cmd, iDUT.iAuth.rider_off, iDUT.iAuth.rx_rdy);
+
+  ////////////////////////////////////////////
+  // Testing to see if lft_spd, rght_spd 
+  // varies with changes in steer_pot
+  ///////////////////////////////////////////
+  applyInputs(12'h400, 12'h400, 12'hFFF, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //apply steerPot val of FFF
+  check_steer_pot_lft_spd_rght_spd(iDUT.iBAL.lft_spd, iDUT.iBAL.rght_spd, steerPot, clk); 
+  //// ?????? how much delay ??????//////////
+  applyInputs(12'h400, 12'h400, 12'h200, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //apply steerPot val of 200
+  check_steer_pot_lft_spd_rght_spd(iDUT.iBAL.lft_spd, iDUT.iBAL.rght_spd, steerPot, clk); 
+  applyInputs(12'h400, 12'h400, 12'h800, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght); //apply steerPot val of 800
+  check_steer_pot_lft_spd_rght_spd(iDUT.iBAL.lft_spd, iDUT.iBAL.rght_spd, steerPot, clk); 
+
+  /////////////////////////////////////////
+  // Testing of steer_en and steer_en SM
+  /////////////////////////////////////////
+  applyInputs(12'h400, 12'h400, 12'hFFF, 12'hFFF, 16'h0000, 'b0, 'b0, clk, ld_cell_lft, ld_cell_rght, steerPot, batt, rider_lean, OVR_I_lft, OVR_I_rght);
+  check_en_steer(RST_n, iDUT.en_steer, iDUT.rider_off); 
+
+  ////////////////////////////////////////
+  // Testing of lft_spd, rght_spd with 
+  // change in rider_lean 
+  ////////////////////////////////////////
+
+
   $stop();
-  
 end
 
 always

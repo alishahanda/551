@@ -22,14 +22,14 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
   wire vld;								// tells us a new inertial reading is valid
   wire [15:0] ptch;						// ptch reading from inertial interface
   wire [15:0] ptch_rt;
-  logic signed [11:0] lft_spd, rght_spd;	// from balance_cntrl to mtr_drv, specify absolute speed to drive motor
+  wire signed [11:0] lft_spd, rght_spd;	// from balance_cntrl to mtr_drv, specify absolute speed to drive motor
   wire lft_rev, rght_rev;				// left & right motor direction
   wire [11:0] lft_ld, rght_ld;		// measurements from load cells
   wire [11:0] batt;						// proportional to battery measurement
   wire [11:0] steer_pot;
   wire norm_mode;						// asserted from steer_en to piezo
-  wire en_steer;						// steering enabled
-  wire rider_off;						// from steer_en to auth_blk
+  logic en_steer;						// steering enabled
+  logic rider_off;						// from steer_en to auth_blk
   wire batt_low;
   wire too_fast;
   wire pwr_up;							// asserted from Auth_blk to balance_cntrl to enable unit
@@ -53,7 +53,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
 				   .INT(INERT_INT));
   
   /////////////////////////////////////
-  // Instantiate balance controller // 
+  // Instantiate balance controller //
   ///////////////////////////////////					 
   balance_cntrl #(fast_sim) iBAL(.clk(clk),.rst_n(rst_n),.vld(vld),.ptch(ptch),
                      .ptch_rt(ptch_rt),.pwr_up(pwr_up),.rider_off(rider_off),

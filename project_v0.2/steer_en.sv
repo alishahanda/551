@@ -1,8 +1,8 @@
-module steer_en #(parameter fast_sim = 0) (clk, rst_n, lft_ld, rght_ld, en_steer, rider_off);
+module steer_en #(parameter fast_sim = 1) (clk, rst_n, lft_ld, rght_ld, en_steer, rider_off);
 input clk, rst_n;
-input signed [11:0] lft_ld, rght_ld;
-output en_steer;
-output rider_off;
+input [11:0] lft_ld, rght_ld;
+output logic en_steer;
+output logic rider_off;
 
 logic clr_tmr, tmr_full;
 logic sum_gt_min;			
@@ -10,8 +10,8 @@ logic sum_lt_min;
 logic diff_gt_15_16;
 logic diff_gt_1_4;
 
-logic signed [12:0] sum_lft_rght_ld;
-logic signed [12:0] sum_lft_rght_ld_1_4;
+logic [12:0] sum_lft_rght_ld;
+logic [12:0] sum_lft_rght_ld_1_4;
 logic signed [12:0] sum_lft_rght_ld_15_16;
 logic signed [11:0] diff_lft_rght_ld;
 logic signed [11:0] diff_lft_rght_ld_abs;
