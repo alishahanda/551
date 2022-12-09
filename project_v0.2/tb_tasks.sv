@@ -115,6 +115,41 @@ ref clk;
 		end
 	join
 endtask
+// Adding task for Auth blk test
+task automatic check_pwr_up;
 
+ref pwr_up;
+ref clk;
+ref RST_n;
+ref [7:0] cmd;
+ref rider_off;
+ref rx_rdy;
+
+begin
+	@(posedge rx_rdy);
+	if(cmd == g) begin
+		repeat(2)@(negedge clk);
+		if(pwr_up == 1)
+			$display("The Segway has received a GO signal and is pwred up\n");
+		else begin
+			$display("The Segway is not yet pwred up\n");
+			$stop();
+		end
+	end
+	else if(cmd == s) begin
+		repeat(2)@(negedge clk);
+		if(rider_off == 1) begin
+			if(pwr_up == 0)
+				$display("The Segway has powered off\n");
+			else begin
+				$display("The Segway should have powered down\n");
+				$stop();
+			end
+		end
+	end
+	else
+		$display("Wrong cmd sent \n");
+end
+endtask
 endpackage
  
