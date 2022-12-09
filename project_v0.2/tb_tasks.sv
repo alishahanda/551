@@ -151,5 +151,33 @@ begin
 		$display("Wrong cmd sent \n");
 end
 endtask
+
+task automatic check_en_steer_functionality; // checking for all state transitions of en_steer block based on en_steer and rider off signals. 
+	
+	ref reset_n;
+	ref en_steer_iDUT, rider_off_iDUT;
+	ref logic [1:0] en_steer_iDUT_state;
+	
+	begin
+		if (!en_steer_iDUT && rider_off_iDUT) begin
+			$display("en_steer = %b \t \& rider_off = %b", en_steer_iDUT, rider_off_iDUT);
+			$display("STEERING ENABLE system is currently in %b. Waiting for the rider to step on the Segway\n", en_steer_iDUT_state);
+		end
+		else if (!en_steer_iDUT && !rider_off_iDUT) begin
+			$display("en_steer = %b \t \& rider_off = %b", en_steer_iDUT, rider_off_iDUT);
+			$display("STEERING ENABLE system is currently in %b. Waiting for the rider to be on the Segway for more than 1.3 sec\n", en_steer_iDUT_state);
+		end
+		else if (en_steer_iDUT && !rider_off_iDUT) begin
+			$display("en_steer = %b \t \& rider_off = %b", en_steer_iDUT, rider_off_iDUT);
+			$display("STEERING ENABLE system is currently in %b. Rider was on the segway for more than 1.3 sec. Hence the Segway can start\n", en_steer_iDUT_state);
+		end
+		else if (!reset_n) begin
+			$display("en_steer = %b \t \& rider_off = %b", en_steer_iDUT, rider_off_iDUT);
+			$display("STEERING ENABLE system has been reset and it is in %b state\n", en_steer_iDUT_state);
+		end
+			
+	end
+	
+endtask
 endpackage
  
