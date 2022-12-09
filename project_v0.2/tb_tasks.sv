@@ -179,5 +179,43 @@ task automatic check_en_steer_functionality; // checking for all state transitio
 	end
 	
 endtask
+
+// task for checking if speed changes based on rider lean
+
+task automatic check_speed_change;
+
+	ref signed [11:0] lft_spd,rght_spd;
+	ref signed [15:0] rider_lean;
+	ref [39:0] spd_mem;
+	begin
+		$display("Rider lean = %d earlier_rider_lean = %d",rider_lean, $signed(spd_mem[39:24]));
+		if(rider_lean > $signed(spd_mem[39:24])) begin
+			$display("The lft spd value = %d rght_spd = %d earlier_lft_spd = %d earlier_rght_spd = %d",lft_spd,rght_spd, $signed(spd_mem[11:0]), $signed(spd_mem[23:12]));
+			if(lft_spd > $signed(spd_mem[11:0]) && rght_spd > $signed(spd_mem[23:12]))
+				$display("Segway speed increases with increase in rider lean \n");
+			else
+				$display("Segway speed is not increasing with increase in rider lean\n");
+		end
+		else if(rider_lean < $signed(spd_mem[39:24])) begin
+			$display("The lft spd value = %d rght_spd = %d earlier_lft_spd = %d earlier_rght_spd = %d",lft_spd,rght_spd, $signed(spd_mem[11:0]), $signed(spd_mem[23:12]));
+			if(lft_spd < $signed(spd_mem[11:0]) && rght_spd < $signed(spd_mem[23:12]))
+				$display("Segway speed decreases with decrease in rider lean \n");
+			else
+				$display("Segway speed is not decreasing with decrease in rider lean\n");
+		
+		end
+	
+	end
+endtask
+// task to store previous lft and rght spd in a register
+task automatic store_lft_rght_spd_mem;
+
+	ref [39:0] spd_mem;
+	ref signed [11:0] lft_spd,rght_spd;
+	ref signed [15:0] rider_lean;
+	begin
+		spd_mem = {rider_lean,rght_spd,lft_spd};
+	end
+endtask
 endpackage
  
