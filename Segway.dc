@@ -1,0 +1,94 @@
+################################################
+# Read in all Verilog files and set top design 
+################################################
+read_file -format sverilog {Auth_blk.sv \
+							A2D_Intf.sv \
+							inert_intf.sv \
+							inertial_integrator.sv \
+							mtr_drv.sv \
+							piezo_drv.sv \
+							rst_synch.sv \
+							Segway.sv \
+							balance_cntrl.sv \
+							PID.sv \
+							SegwayMath.sv \
+							SPI_mnrch.sv \
+							steer_en.sv \
+							steer_en_SM.sv \
+							UART_rx.sv \
+							PWM11.sv}
+current_design Segway
+link
+
+##############################
+# Constrain and assign clock 
+##############################
+create_clock -name "clk" -period 2.5 -waveform {0 1.25} {clk}
+set_dont_touch_network [find port clk]
+set_dont_touch_network [find port RST_n]
+
+#############################################
+# Constrain input timings and drive strength 
+#############################################
+# Collection of all primary outputs except clk
+set prim_inputs [remove_from_collection [all_inputs] [find port clk]]
+set_input_delay -clock clk 0.25 $prim_inputs
+set_driving_cell -lib_cell NAND2X2_LVT -library saed32lvt_tt0p85v25c $prim_inputs
+set_drive 0.1 RST_n
+
+#######################################
+# Constrain output timings and load
+#######################################
+set_output_delay -clock clk 0.35 [all_outputs]
+set_load 50 [all_outputs]
+
+##############################################
+# Specify wireload model & max transition time 
+##############################################
+set_wire_load_model -name 16000 -library saed32lvt_tt0p85v25c
+set_max_transition 0.1 [current_design]
+
+###########################
+# Clock uncertainty
+###########################
+set_clock_uncertainty 0.125 clk
+set_fix_hold clk
+
+#############
+# Compile
+#############
+compile -map_effort high 
+
+###########################
+# Multicycle paths
+###########################
+set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
+
+set_multicycle_path 2 -setup -from [find pin iBAL/iPID/soft_start_ff_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iBAL/iPID/soft_start_ff_reg*/CLK]
+
+#####################
+# Flatten hierarchy 
+#####################
+ungroup -all -flatten
+
+###############
+# 2nd Compile
+############### 
+compile -map_effort high
+compile -incremental_mapping -map_effort high
+
+####################################
+# Generate timing and area reports
+####################################
+report_timing -path full -delay max > Segway.timing.max.rpt
+report_timing -path full -delay min > Segway.timing.min.rpt
+report_area > Segway.area.rpt
+
+#############################
+# Write out verilog netlist
+#############################
+write_file -format verilog -output Segway.vg
