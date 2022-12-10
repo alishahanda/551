@@ -79,7 +79,6 @@ ungroup -all -flatten
 # 2nd Compile
 ############### 
 compile -map_effort high
-compile -incremental_mapping -map_effort high
 
 ####################################
 # Generate timing and area reports
