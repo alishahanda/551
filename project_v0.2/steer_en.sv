@@ -12,7 +12,7 @@ logic diff_gt_1_4;
 
 logic [12:0] sum_lft_rght_ld;
 logic [12:0] sum_lft_rght_ld_1_4;
-logic signed [12:0] sum_lft_rght_ld_15_16;
+logic [12:0] sum_lft_rght_ld_15_16;
 logic signed [11:0] diff_lft_rght_ld;
 logic signed [11:0] diff_lft_rght_ld_abs;
 logic [25:0] timer_1p34s;
