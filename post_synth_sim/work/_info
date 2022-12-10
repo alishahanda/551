@@ -1,0 +1,223 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+!s11f vlog 2021.2_2 2021.06, Jun 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/filespace/d/deepas/ece551/post_synth_sim
+T_opt
+!s110 1670629528
+VCn^1VNX;VXkh1hYNga`hQ2
+04 9 4 work Segway_tb fast 0
+=5-000ae431a4f1-6393c897-dfcf7-1ea4e8
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -L /filespace/d/deepas/ece551/SAED32_lib +acc
+Z2 tCvgOpt 0
+n@_opt
+OE;O;2021.2_2;73
+vADC128S_FC
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1670627877
+!i10b 1
+!s100 n1UPndo6Ol_azTTf4hd=N2
+IG[O6XR[NBV<^N>83a`_T>1
+S1
+R1
+w1670627182
+8/filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv
+F/filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv
+!i122 0
+L0 1 114
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OE;L;2021.2_2;73
+r1
+!s85 0
+31
+Z7 !s108 1670627877.000000
+!s107 /filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv|
+!i113 0
+Z8 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+n@a@d@c128@s_@f@c
+vrst_synch
+R3
+!s110 1670628221
+!i10b 1
+!s100 D>mKNhlXlYD@2k90nC>;L1
+ILcY3k5?d<k3STU>2eV@gS2
+S1
+R1
+w1670628206
+8/filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv
+F/filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv
+!i122 7
+L0 1 17
+R5
+R6
+r1
+!s85 0
+31
+!s108 1670628221.000000
+!s107 /filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv|
+!i113 0
+R8
+R2
+vSegway
+R4
+!i10b 1
+!s100 ^MXgahCzSH_fI<WeMDDhT0
+I]F5e[:zY70=>8QV:kO2`P0
+R1
+w1670627813
+8/filespace/d/deepas/ece551/post_synth_sim/Segway.vg
+F/filespace/d/deepas/ece551/post_synth_sim/Segway.vg
+!i122 1
+L0 8 5482
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 /filespace/d/deepas/ece551/post_synth_sim/Segway.vg|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/Segway.vg|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+n@segway
+vSegway_tb
+R3
+DXx4 work 8 tb_tasks 0 22 Sam9mSnc81ie_l57:BKcJ2
+!s110 1670629514
+!i10b 1
+!s100 ^kKP6Sa`9i76Dkd7G8Ngb0
+I^YjUY^OWUa?b=gPcg34`Q2
+S1
+R1
+w1670629510
+8/filespace/d/deepas/ece551/post_synth_sim/Segway_tb.sv
+F/filespace/d/deepas/ece551/post_synth_sim/Segway_tb.sv
+!i122 11
+L0 2 86
+R5
+R6
+r1
+!s85 0
+31
+!s108 1670629514.000000
+!s107 /filespace/d/deepas/ece551/post_synth_sim/Segway_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/Segway_tb.sv|
+!i113 0
+R8
+R2
+n@segway_tb
+vSegwayModel
+R3
+!s110 1670628317
+!i10b 1
+!s100 2I1^TdPD?mkFSEC2j?aRR1
+IG@n5Flcm:87B1U7Wekk>J2
+S1
+R1
+w1670628312
+8/filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv
+F/filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv
+!i122 8
+L0 2 454
+R5
+R6
+r1
+!s85 0
+31
+!s108 1670628317.000000
+!s107 /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv|
+!i113 0
+R8
+R2
+n@segway@model
+vSPI_ADC128S
+R3
+Z9 !s110 1670627878
+!i10b 1
+!s100 93oj0i;UV@::cHMPGHMJ>1
+I09gcG;VHd>GHi[mVEYe?[2
+S1
+R1
+w1670627193
+8/filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv
+F/filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv
+!i122 3
+L0 1 140
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 /filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv|
+!i113 0
+R8
+R2
+n@s@p@i_@a@d@c128@s
+Xtb_tasks
+R3
+R9
+!i10b 1
+!s100 VkVk=dl0FIL9^I9f7I=Iz0
+ISam9mSnc81ie_l57:BKcJ2
+S1
+R1
+w1670627232
+8/filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv
+F/filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv
+!i122 4
+L0 1 0
+VSam9mSnc81ie_l57:BKcJ2
+R6
+r1
+!s85 0
+31
+Z10 !s108 1670627878.000000
+!s107 /filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv|
+!i113 0
+R8
+R2
+vUART_tx
+R3
+R9
+!i10b 1
+!s100 IG?@bOBH8WQn59g0?4Q_C0
+IgIFVSY53OMP>fkbOF5BO70
+S1
+R1
+w1670627177
+8/filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv
+F/filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv
+!i122 5
+L0 1 98
+R5
+R6
+r1
+!s85 0
+31
+R10
+!s107 /filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv|
+!i113 0
+R8
+R2
+n@u@a@r@t_tx

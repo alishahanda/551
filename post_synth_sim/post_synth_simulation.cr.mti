@@ -1,0 +1,53 @@
+/filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/ADC128S_FC.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ADC128S_FC
+
+Top level modules:
+	ADC128S_FC
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/tb_tasks.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling package tb_tasks
+
+Top level modules:
+	--none--
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/UART_tx.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module UART_tx
+
+Top level modules:
+	UART_tx
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/Segway.vg {1 {vlog -work work -vopt -stats=none /filespace/d/deepas/ece551/post_synth_sim/Segway.vg
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Segway
+
+Top level modules:
+	Segway
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/SPI_ADC128S.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module SPI_ADC128S
+
+Top level modules:
+	SPI_ADC128S
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/rst_synch.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module rst_synch
+
+Top level modules:
+	rst_synch
+
+} {} {}} /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv {2 {vlog -work work -vopt -sv -stats=none /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module SegwayModel
+** Warning: /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv(142): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv(255): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /filespace/d/deepas/ece551/post_synth_sim/SegwayModel.sv(257): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	SegwayModel
+
+} {} {}}
