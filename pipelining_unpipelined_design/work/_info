@@ -1,0 +1,586 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.2_2 2021.06, Jun 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/filespace/v/vkolapalli/ece-551/unpipelined_project_our_tests
+T_opt
+!s110 1670737210
+V^89U[P:KE8fk69^38Y4E;3
+04 9 4 work Segway_tb fast 0
+=6-000ae431a4f1-63956d39-de784-3dc333
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OE;O;2021.2_2;73
+R1
+vA2D_Intf
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1670735408
+!i10b 1
+!s100 KL>ZcWSd@;1foNV9X1:l<1
+I^^JZiN=9S>9P29E9A6d691
+S1
+Z5 d/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design
+Z6 w1670718175
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/A2D_Intf.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/A2D_Intf.sv
+!i122 44
+L0 1 107
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OE;L;2021.2_2;73
+r1
+!s85 0
+31
+Z9 !s108 1670735408.000000
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/A2D_Intf.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/A2D_Intf.sv|
+!i113 0
+Z10 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+n@a2@d_@intf
+vADC128S_FC
+R3
+R4
+!i10b 1
+!s100 n1UPndo6Ol_azTTf4hd=N2
+IIB<=@djSh;?H?JVPaMNL@2
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/ADC128S_FC.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/ADC128S_FC.sv
+!i122 45
+L0 1 114
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/ADC128S_FC.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/ADC128S_FC.sv|
+!i113 0
+R10
+R2
+n@a@d@c128@s_@f@c
+vAuth_blk
+R3
+R4
+!i10b 1
+!s100 RD>ibTN=NOi6N<Wz7TKD@1
+I<IRHR0W927NEBX:F?F<EH2
+S1
+R5
+w1670727964
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Auth_blk.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Auth_blk.sv
+!i122 46
+L0 1 66
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Auth_blk.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Auth_blk.sv|
+!i113 0
+R10
+R2
+n@auth_blk
+vbalance_cntrl
+R3
+R4
+!i10b 1
+!s100 P]dZ8Z^@DnW6il:`b^M7Z2
+IlFH5RkkVJ=4Q_687N76O]1
+S1
+R5
+w1670725976
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/balance_cntrl.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/balance_cntrl.sv
+!i122 47
+L0 1 41
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/balance_cntrl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/balance_cntrl.sv|
+!i113 0
+R10
+R2
+vinert_intf
+R3
+R4
+!i10b 1
+!s100 WGn7U<kFaCU_bD:UTM^bY2
+ITHm`iCWSeL2nF_h5g:l2B3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inert_intf.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inert_intf.sv
+!i122 48
+L0 1 215
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inert_intf.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inert_intf.sv|
+!i113 0
+R10
+R2
+vinertial_integrator
+R3
+R4
+!i10b 1
+!s100 KiMoGPCGd_imXZ2H5Wl]H0
+IS9KZbehYkCTaL>4FY=;PU3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inertial_integrator.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inertial_integrator.sv
+!i122 49
+L0 1 59
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inertial_integrator.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/inertial_integrator.sv|
+!i113 0
+R10
+R2
+vmtr_drv
+R3
+R4
+!i10b 1
+!s100 ^4;d:=7h32F27ACFJJVAe3
+IKdcbOgG3kaD6<4gI3I?KC3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/mtr_drv.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/mtr_drv.sv
+!i122 50
+L0 1 141
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/mtr_drv.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/mtr_drv.sv|
+!i113 0
+R10
+R2
+vPID
+R3
+R4
+!i10b 1
+!s100 FHS=z9>VbdBBUd>=E2dg`2
+IE^`<<TVN]R@2n5B]5Ig2A0
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PID.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PID.sv
+!i122 51
+L0 1 87
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PID.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PID.sv|
+!i113 0
+R10
+R2
+n@p@i@d
+vpiezo_drv
+R3
+R4
+!i10b 1
+!s100 ON7dM7_JhdV>877d0A[;22
+I:9Ba8hA?63ImahnnG^bz]2
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/piezo_drv.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/piezo_drv.sv
+!i122 52
+L0 1 268
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/piezo_drv.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/piezo_drv.sv|
+!i113 0
+R10
+R2
+vPWM11
+R3
+R4
+!i10b 1
+!s100 9YO0ZR_WDCL]UVQ616:eG0
+I_z`2Hd]nEZjVWVLWK3W^g1
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PWM11.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PWM11.sv
+!i122 53
+L0 1 33
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PWM11.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/PWM11.sv|
+!i113 0
+R10
+R2
+n@p@w@m11
+vrst_synch
+R3
+R4
+!i10b 1
+!s100 D>mKNhlXlYD@2k90nC>;L1
+IZ<d=Q?:<7JLiHWW;TzYhP0
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/rst_synch.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/rst_synch.sv
+!i122 54
+L0 1 17
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/rst_synch.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/rst_synch.sv|
+!i113 0
+R10
+R2
+vSegway
+R3
+Z11 !s110 1670735409
+!i10b 1
+!s100 O_:7>CaO`Qi0cOZFK9h>h1
+I88hVS:KJdzl57B9?^X_1`3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway.sv
+!i122 55
+Z12 L0 1 102
+R7
+R8
+r1
+!s85 0
+31
+R9
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway.sv|
+!i113 0
+R10
+R2
+n@segway
+vSegway_tb
+R3
+DXx4 work 8 tb_tasks 0 22 <bW[R42MY@_[;CD8T?5Pl1
+!s110 1670737344
+!i10b 1
+!s100 G6`MFIj]XRODW]OM44DeJ1
+IEz[^gI6TDZCmkYHcQhQ0^2
+S1
+R5
+w1670737323
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway_tb.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway_tb.sv
+!i122 71
+L0 1 211
+R7
+R8
+r1
+!s85 0
+31
+!s108 1670737344.000000
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/Segway_tb.sv|
+!i113 0
+R10
+R2
+n@segway_tb
+vSegwayMath
+R3
+R11
+!i10b 1
+!s100 jTDdN^BBRG?_KLkHEWkd23
+IdaUCAEXmGKA6PVjfPIjzQ0
+S1
+R5
+w1670725943
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayMath.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayMath.sv
+!i122 57
+L0 1 69
+R7
+R8
+r1
+!s85 0
+31
+Z13 !s108 1670735409.000000
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayMath.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayMath.sv|
+!i113 0
+R10
+R2
+n@segway@math
+vSegwayModel
+R3
+R11
+!i10b 1
+!s100 G5J0Q6daBCffBWN0d5]9i0
+IenzQJKo4z4PU:dchAmzK`3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayModel.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayModel.sv
+!i122 58
+L0 1 454
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayModel.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SegwayModel.sv|
+!i113 0
+R10
+R2
+n@segway@model
+vSPI_ADC128S
+R3
+R11
+!i10b 1
+!s100 93oj0i;UV@::cHMPGHMJ>1
+IGIF=L9NgSBQk0li53Jn;a0
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_ADC128S.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_ADC128S.sv
+!i122 59
+L0 1 140
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_ADC128S.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_ADC128S.sv|
+!i113 0
+R10
+R2
+n@s@p@i_@a@d@c128@s
+vSPI_mnrch
+R3
+R11
+!i10b 1
+!s100 >mEI1lVOCCLI2@EYKIkUM3
+Ii=bVd^bKmFhfGX81QRiO>1
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_mnrch.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_mnrch.sv
+!i122 60
+L0 1 138
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_mnrch.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/SPI_mnrch.sv|
+!i113 0
+R10
+R2
+n@s@p@i_mnrch
+vsteer_en
+R3
+R11
+!i10b 1
+!s100 MQ2F]JPjOH?GABVnO47cV0
+I9MUZWg@l]5kF2gERO<zDR3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en.sv
+!i122 61
+L0 1 63
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en.sv|
+!i113 0
+R10
+R2
+vsteer_en_SM
+R3
+R11
+!i10b 1
+!s100 >F0eT0TU?b[FD49iN2U6o0
+IPGiT8IA@:9oHTWm>0KQfE3
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en_SM.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en_SM.sv
+!i122 62
+L0 1 113
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en_SM.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/steer_en_SM.sv|
+!i113 0
+R10
+R2
+nsteer_en_@s@m
+Xtb_tasks
+R3
+!s110 1670737207
+!i10b 1
+!s100 a@80JQOAfNT@;;jl8M6hC2
+I<bW[R42MY@_[;CD8T?5Pl1
+S1
+R5
+w1670737180
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/tb_tasks.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/tb_tasks.sv
+!i122 70
+L0 1 0
+V<bW[R42MY@_[;CD8T?5Pl1
+R8
+r1
+!s85 0
+31
+!s108 1670737207.000000
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/tb_tasks.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/tb_tasks.sv|
+!i113 0
+R10
+R2
+vUART_rx
+R3
+R11
+!i10b 1
+!s100 oEGgeGN64iWeJKneU3b:H1
+IF^TnL@CMP_jj]ClU=EX2M1
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_rx.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_rx.sv
+!i122 64
+R12
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_rx.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_rx.sv|
+!i113 0
+R10
+R2
+n@u@a@r@t_rx
+vUART_tx
+R3
+R11
+!i10b 1
+!s100 IG?@bOBH8WQn59g0?4Q_C0
+I^0k1E7J^QH20Y31T<f?_O1
+S1
+R5
+R6
+8/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_tx.sv
+F/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_tx.sv
+!i122 65
+L0 1 98
+R7
+R8
+r1
+!s85 0
+31
+R13
+!s107 /filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_tx.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|/filespace/v/vkolapalli/ece-551/pipelining_unpipelined_design/UART_tx.sv|
+!i113 0
+R10
+R2
+n@u@a@r@t_tx
